@@ -1,0 +1,42 @@
+import ThemeContext from '../../Context/ThemeContext'
+import {
+  FailureViewContainer,
+  FailureImage,
+  FailureHeader,
+  FailureDesc,
+  RetryBtn,
+} from './styledComponents'
+
+const FailureView = props => {
+  const {retry} = props
+
+  return (
+    <ThemeContext.Consumer>
+      {value => {
+        const {isThemeDark} = value
+        const failureImage = isThemeDark
+          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
+          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+        return (
+          <FailureViewContainer>
+            <FailureImage src={failureImage} />
+            <FailureHeader color={isThemeDark ? '#000000' : '#ffffff'}>
+              Oops! Something Went Wrong
+            </FailureHeader>
+            <FailureDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
+              We are having some trouble to complete your request.
+            </FailureDesc>
+            <FailureDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
+              Please Try Again.
+            </FailureDesc>
+            <RetryBtn type="button" onClick={retry()}>
+              Retry
+            </RetryBtn>
+          </FailureViewContainer>
+        )
+      }}
+    </ThemeContext.Consumer>
+  )
+}
+
+export default FailureView
