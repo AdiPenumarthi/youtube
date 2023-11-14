@@ -65,7 +65,10 @@ class Trending extends Component {
           return (
             <GamingVideosContainer>
               {gamingVideos.map(each => (
-                <Link to={`/videos/${each.id}`}>
+                <Link
+                  to={`/videos/${each.id}`}
+                  style={{textDecoration: 'none', flexGrow: 1, display: 'flex'}}
+                >
                   <EachVideo key={each.id}>
                     <GameImage src={each.thumbnailUrl} alt="video thumbnail" />
                     <GameTitle color={color}>{each.title}</GameTitle>

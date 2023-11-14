@@ -32,6 +32,7 @@ export const NavLink = styled(Link)`
 export const VideoContainer = styled.div`
   width: 180px;
   min-height: 220px;
+  max-width: 250px;
   margin: 0px;
   padding: 10px;
   padding-left: 0px;
