@@ -35,12 +35,13 @@ export const GamingVideosContainer = styled.ul`
   width: 100%;
   overflow-y: scroll;
   background-color: ${props => props.bgColor};
+  text-decoration: none;
+  list-style-type: none;
 `
 
 export const EachVideo = styled.li`
-  display: flex;
-  flex-direction: column;
   width: 180px;
+  max-width: 250px;
   min-height: 220px;
   margin: 0px;
   padding: 10px;

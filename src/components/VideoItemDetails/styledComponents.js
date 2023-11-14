@@ -10,7 +10,7 @@ export const VideoItemContainer = styled.div`
 `
 
 export const VideoItemCard = styled.div`
-  width: 100;
+  width: 100%;
   height: 90vh;
   display: flex;
   flex-direction: column;
