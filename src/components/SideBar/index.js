@@ -1,5 +1,4 @@
 import {Component} from 'react'
-import {Link} from 'react-router-dom'
 import {BiListPlus} from 'react-icons/bi'
 import {AiFillHome} from 'react-icons/ai'
 import {ImFire} from 'react-icons/im'
@@ -8,6 +7,7 @@ import ThemeContext from '../../Context/ThemeContext'
 import {
   SideBarContainer,
   FeaturesContainer,
+  LinkItem,
   TabBtn,
   IconBtn,
   TabName,
@@ -21,9 +21,9 @@ import {
 class SideBar extends Component {
   state = {activeTabId: 'HOME'}
 
-  changeActiveTab = tabId => {
-    this.setState({activeTabId: tabId})
-  }
+  /* changeActiveTab = tabId => {
+    this.setState({activeTab: tabId})
+  } */
 
   changeActiveTabToHome = () => {
     this.setState({activeTabId: 'HOME'})
@@ -46,103 +46,113 @@ class SideBar extends Component {
     return (
       <ThemeContext.Consumer>
         {value => {
-          const {isThemeDark} = value
+          const {isThemeDark, activeTab} = value
           const bgColor = isThemeDark ? '#424242' : '#f1f5f9'
           const iconColor = isThemeDark ? ' #d7dfe9' : '#475569'
 
           return (
             <SideBarContainer bgColor={isThemeDark ? '#212121' : '##f9f9f9'}>
               <FeaturesContainer>
-                <TabBtn
-                  type="button"
-                  onClick={this.changeActiveTabToHome}
-                  bgColor={
-                    activeTabId === 'HOME' ? `${bgColor}` : 'transparent'
-                  }
-                >
-                  <IconBtn
-                    color={activeTabId === 'HOME' ? '#ff0000' : `${iconColor}`}
-                    type="button"
-                  >
-                    <AiFillHome />
-                  </IconBtn>
-                  <TabName
-                    fontWeight={activeTabId === 'HOME' ? '600' : 'none'}
-                    color={iconColor}
-                  >
-                    HOME
-                  </TabName>
-                </TabBtn>
-                <TabBtn
-                  type="button"
-                  onClick={this.changeActiveTabToTrending}
-                  bgColor={
-                    activeTabId === 'TRENDING' ? `${bgColor}` : 'transparent'
-                  }
-                >
-                  <IconBtn
-                    color={
-                      activeTabId === 'TRENDING' ? '#ff0000' : `${iconColor}`
+                <LinkItem to="/">
+                  <TabBtn
+                    onClick={this.changeActiveTabToHome}
+                    bgColor={
+                      activeTabId === 'HOME' ? `${bgColor}` : 'transparent'
                     }
+                  >
+                    <IconBtn
+                      color={
+                        activeTabId === 'HOME' ? '#ff0000' : `${iconColor}`
+                      }
+                      type="button"
+                    >
+                      <AiFillHome />
+                    </IconBtn>
+                    <TabName
+                      fontWeight={activeTabId === 'HOME' ? '600' : 'none'}
+                      color={iconColor}
+                    >
+                      HOME
+                    </TabName>
+                  </TabBtn>
+                </LinkItem>
+                <LinkItem to="/trending">
+                  <TabBtn
                     type="button"
-                  >
-                    <ImFire />
-                  </IconBtn>
-                  <TabName
-                    fontWeight={activeTabId === 'TRENDING' ? '600' : 'none'}
-                    color={iconColor}
-                  >
-                    TRENDING
-                  </TabName>
-                </TabBtn>
-                <TabBtn
-                  type="button"
-                  onClick={this.changeActiveTabToGaming}
-                  bgColor={
-                    activeTabId === 'GAMING' ? `${bgColor}` : 'transparent'
-                  }
-                >
-                  <IconBtn
-                    color={
-                      activeTabId === 'GAMING' ? '#ff0000' : `${iconColor}`
+                    bgColor={
+                      activeTab === 'TRENDING' ? `${bgColor}` : 'transparent'
                     }
+                  >
+                    <IconBtn
+                      color={
+                        activeTabId === 'TRENDING' ? '#ff0000' : `${iconColor}`
+                      }
+                      type="button"
+                    >
+                      <ImFire />
+                    </IconBtn>
+                    <TabName
+                      fontWeight={activeTabId === 'TRENDING' ? '600' : 'none'}
+                      color={iconColor}
+                    >
+                      TRENDING
+                    </TabName>
+                  </TabBtn>
+                </LinkItem>
+                <LinkItem to="/gaming">
+                  <TabBtn
                     type="button"
+                    onClick={this.changeActiveTabToGaming}
+                    bgColor={
+                      activeTabId === 'GAMING' ? `${bgColor}` : 'transparent'
+                    }
                   >
-                    <SiYoutubegaming />
-                  </IconBtn>
-                  <TabName
-                    fontWeight={activeTabId === 'GAMING' ? '600' : 'none'}
-                    color={iconColor}
-                  >
-                    GAMING
-                  </TabName>
-                </TabBtn>
-                <TabBtn
-                  type="button"
-                  onClick={this.changeActiveTabToSavedVideos}
-                  bgColor={
-                    activeTabId === 'SAVED VIDEOS'
-                      ? `${bgColor}`
-                      : 'transparent'
-                  }
-                >
-                  <IconBtn
-                    color={
+                    <IconBtn
+                      color={
+                        activeTabId === 'GAMING' ? '#ff0000' : `${iconColor}`
+                      }
+                      type="button"
+                    >
+                      <SiYoutubegaming />
+                    </IconBtn>
+                    <TabName
+                      fontWeight={activeTabId === 'GAMING' ? '600' : 'none'}
+                      color={iconColor}
+                    >
+                      GAMING
+                    </TabName>
+                  </TabBtn>
+                </LinkItem>
+                <LinkItem to="/saved-videos">
+                  <TabBtn
+                    type="button"
+                    onClick={this.changeActiveTabToSavedVideos}
+                    bgColor={
                       activeTabId === 'SAVED VIDEOS'
-                        ? '#ff0000'
-                        : `${iconColor}`
+                        ? `${bgColor}`
+                        : 'transparent'
                     }
-                    type="button"
                   >
-                    <BiListPlus />
-                  </IconBtn>
-                  <TabName
-                    fontWeight={activeTabId === 'SAVED VIDEOS' ? '600' : 'none'}
-                    color={iconColor}
-                  >
-                    SAVED VIDEOS
-                  </TabName>
-                </TabBtn>
+                    <IconBtn
+                      color={
+                        activeTabId === 'SAVED VIDEOS'
+                          ? '#ff0000'
+                          : `${iconColor}`
+                      }
+                      type="button"
+                    >
+                      <BiListPlus />
+                    </IconBtn>
+                    <TabName
+                      fontWeight={
+                        activeTabId === 'SAVED VIDEOS' ? '600' : 'none'
+                      }
+                      color={iconColor}
+                    >
+                      SAVED VIDEOS
+                    </TabName>
+                  </TabBtn>
+                </LinkItem>
               </FeaturesContainer>
               <FooterSection>
                 <ContactUs color={iconColor}>CONTACT US</ContactUs>
@@ -161,7 +171,7 @@ class SideBar extends Component {
                   />
                 </SocialMediaContainer>
                 <FooterDescription color={iconColor}>
-                  Enjoy! Now to see your channels and recommedations!
+                  Enjoy! Now to see your channels and recommendations!
                 </FooterDescription>
               </FooterSection>
             </SideBarContainer>

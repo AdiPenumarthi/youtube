@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
 export const SideBarContainer = styled.div`
   width: 25%;
@@ -23,7 +24,12 @@ export const FeaturesContainer = styled.div`
   background-color: transparent;
 `
 
-export const TabBtn = styled.button`
+export const LinkItem = styled(Link)`
+  width: 100%;
+  text-decoration: none;
+`
+
+export const TabBtn = styled.li`
   border: none;
   width: 100%;
   display: flex;

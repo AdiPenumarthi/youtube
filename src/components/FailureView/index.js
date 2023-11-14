@@ -17,9 +17,14 @@ const FailureView = props => {
         const failureImage = isThemeDark
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+
+        const retryData = () => {
+          retry()
+        }
+
         return (
           <FailureViewContainer>
-            <FailureImage src={failureImage} />
+            <FailureImage src={failureImage} alt="failure view" />
             <FailureHeader color={isThemeDark ? '#000000' : '#ffffff'}>
               Oops! Something Went Wrong
             </FailureHeader>
@@ -29,7 +34,7 @@ const FailureView = props => {
             <FailureDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
               Please Try Again.
             </FailureDesc>
-            <RetryBtn type="button" onClick={retry()}>
+            <RetryBtn type="button" onClick={retryData}>
               Retry
             </RetryBtn>
           </FailureViewContainer>

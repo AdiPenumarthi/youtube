@@ -6,12 +6,14 @@ export const SearchVideoContainer = styled.ul`
   height: 80%;
   margin-top: 20px;
   padding: 0px;
+  padding-left: 15px;
+  padding-right: 15px;
   display: flex;
   flex-wrap: wrap;
   overflow-y: scroll;
 `
 
-export const VideoListCard = styled.div`
+export const VideoListCard = styled.li`
   flex-grow: 1;
   list-style-type: none;
   margin: 0px;
@@ -24,11 +26,12 @@ export const NavLink = styled(Link)`
   margin: 0px;
   padding: 0px;
   flex-grow: 1;
+  text-decoration: none;
 `
 
-export const VideoContainer = styled.li`
+export const VideoContainer = styled.div`
   width: 180px;
-  height: 220px;
+  min-height: 220px;
   margin: 0px;
   padding: 10px;
   padding-left: 0px;
@@ -37,7 +40,7 @@ export const VideoContainer = styled.li`
 
 export const VideoThumbnailImage = styled.img`
   width: 100%;
-  height: 60%;
+  height: 140px;
   flex-grow: 1;
 `
 

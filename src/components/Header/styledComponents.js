@@ -70,7 +70,7 @@ export const LogoutBtnSmall = styled.button`
   font-size: 18px;
   color: ${props => props.color};
   background-color: transparent;
-  margin-right: 18px;
+  margin-right: 8px;
 
   @media screen and (min-width: 767px) {
     display: none;
@@ -88,9 +88,51 @@ export const LogoutBtnLarge = styled.button`
   font-family: 'Roboto';
   font-size: 14px;
   font-weight: 600;
-  margin-right: 10px;
 
   @media screen and (max-width: 767px) {
     display: none;
   }
+`
+export const PopupContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 220px;
+  border-radius: 20px;
+  background-color: ${props => props.bgColor};
+`
+
+export const ConfirmationText = styled.p`
+  font-family: 'Roboto';
+  color: ${props => props.color};
+  font-size: 16px;
+  font-weight: 600;
+  margin-bottom: 40px;
+`
+
+export const CancelBtn = styled.button`
+  width: 80px;
+  height: 36px;
+  border: 1px solid ${props => props.color};
+  color: ${props => props.color};
+  border-radius: 5px;
+  background-color: transparent;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+`
+export const ButtonsContainer = styled.div`
+  display:flex;
+  justify-content:space-between;
+  align-items:center:
+  width:18px;
+`
+export const Logout = styled.div`
+  border: none;
+  background-color: none;
+  padding: 0px;
+  margin-right: 10px;
 `

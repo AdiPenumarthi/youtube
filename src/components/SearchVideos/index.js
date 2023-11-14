@@ -29,16 +29,16 @@ const SearchVideos = props => {
           <SearchVideoContainer>
             {searchVideos.map(eachVideo => (
               <VideoListCard key={eachVideo.id}>
-                <NavLink to={`videos/"${eachVideo.id}`}>
+                <NavLink to={`/videos/${eachVideo.id}`}>
                   <VideoContainer>
                     <VideoThumbnailImage
                       src={eachVideo.thumbnailUrl}
-                      alt="thumbnail-image"
+                      alt="video thumbnail"
                     />
                     <VideoDetailContainer>
                       <ProfileImage
                         src={eachVideo.channel.profileImageUrl}
-                        alt="profile-image"
+                        alt="channel logo"
                       />
                       <VideoDetailCard>
                         <VideoTitle color={titleColor}>

@@ -1,8 +1,9 @@
 import Cookies from 'js-cookie'
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
 import {BsSun} from 'react-icons/bs'
 import {HiMoon} from 'react-icons/hi'
 import {FiLogOut, FiMenu} from 'react-icons/fi'
+import Popup from 'reactjs-popup'
 import ThemeContext from '../../Context/ThemeContext'
 import {
   HeaderContainer,
@@ -13,6 +14,11 @@ import {
   ProfileImg,
   LogoutBtnSmall,
   LogoutBtnLarge,
+  PopupContainer,
+  Logout,
+  ConfirmationText,
+  CancelBtn,
+  ButtonsContainer,
 } from './styledComponents'
 
 const Header = props => {
@@ -30,18 +36,24 @@ const Header = props => {
           ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-dark-theme-img.png'
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png'
         const btnColor = isThemeDark ? '#ffffff' : '#3b82f6'
+        const color = isThemeDark ? '#ffffff' : '#000000'
+        const cancelBtnColor = isThemeDark ? '#cbd5e1' : '#cbd5e1'
 
         const onClickChangeTheme = () => {
           changeTheme()
         }
+
         return (
           <HeaderContainer bgColor={isThemeDark ? '#212121' : '#f9f9f9'}>
-            <HeaderLogo src={logoUrl} alt="nxt-watch-logo" />
+            <Link to="/">
+              <HeaderLogo src={logoUrl} alt="website logo" />
+            </Link>
             <HeaderItemsContainer>
               <ThemeBtn
                 type="button"
                 onClick={onClickChangeTheme}
                 color={isThemeDark ? '#ffffff' : '#000000'}
+                data-testid="theme"
               >
                 {isThemeDark ? <BsSun /> : <HiMoon />}
               </ThemeBtn>
@@ -55,20 +67,48 @@ const Header = props => {
                 src="https://assets.ccbp.in/frontend/react-js/nxt-watch-profile-img.png"
                 alt="profile"
               />
-              <LogoutBtnSmall
-                type="button"
-                onClick={onClickLogout}
-                color={isThemeDark ? '#ffffff' : '#000000'}
+              <Popup
+                modal
+                trigger={
+                  <Logout>
+                    <LogoutBtnSmall
+                      type="button"
+                      color={isThemeDark ? '#ffffff' : '#000000'}
+                    >
+                      <FiLogOut />
+                    </LogoutBtnSmall>
+                    <LogoutBtnLarge type="button" color={btnColor}>
+                      Logout
+                    </LogoutBtnLarge>
+                  </Logout>
+                }
+                position="right center"
+                className="popup-content"
               >
-                <FiLogOut />
-              </LogoutBtnSmall>
-              <LogoutBtnLarge
-                type="button"
-                onClick={onClickLogout}
-                color={btnColor}
-              >
-                Logout
-              </LogoutBtnLarge>
+                {close => (
+                  <PopupContainer bgColor={isThemeDark ? '#212121' : '#f9f9f9'}>
+                    <ConfirmationText color={color}>
+                      Are you sure you want to logout?
+                    </ConfirmationText>
+                    <ButtonsContainer>
+                      <CancelBtn
+                        type="button"
+                        color={cancelBtnColor}
+                        onClick={() => close()}
+                      >
+                        Cancel
+                      </CancelBtn>
+                      <LogoutBtnLarge
+                        type="button"
+                        color={btnColor}
+                        onClick={onClickLogout}
+                      >
+                        Confirm
+                      </LogoutBtnLarge>
+                    </ButtonsContainer>
+                  </PopupContainer>
+                )}
+              </Popup>
             </HeaderItemsContainer>
           </HeaderContainer>
         )

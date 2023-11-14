@@ -9,7 +9,6 @@ import AdContainer from '../AdContainer'
 import FailureView from '../FailureView'
 import ThemeContext from '../../Context/ThemeContext'
 import SearchVideos from '../SearchVideos'
-
 import {
   HomeContainer,
   WatchContainer,
@@ -140,49 +139,62 @@ class Home extends Component {
     }
   }
 
-  render() {
-    const {searchInput, apiStatus, searchVideos} = this.state
-    const jwtToken = Cookies.get('jwt_token')
-    if (jwtToken === undefined) {
-      return <Redirect to="/login" />
-    }
-    console.log(searchVideos)
+  getHomeTabVideos = () => {
+    const {searchInput, apiStatus} = this.state
     return (
       <ThemeContext.Consumer>
         {value => {
           const {isThemeDark} = value
-          const bgColor = isThemeDark ? '#000000' : '#ffffff'
           return (
-            <HomeContainer bgColor={bgColor}>
+            <VideosContainer>
+              <AdContainer />
+              <VideoListContainer>
+                <SearchContainer
+                  borderColor={isThemeDark ? '#cccccc' : '#424242'}
+                >
+                  <SearchBar
+                    type="text"
+                    value={searchInput}
+                    placeholder="Search"
+                    onChange={this.onChangeSearchInput}
+                    color={isThemeDark ? '#f1f1f1' : '#0f0f0f'}
+                  />
+                  <SearchIconBtn
+                    type="button"
+                    color={isThemeDark ? '#cccccc' : '#424242'}
+                    onClick={this.onClickEnter}
+                    data-testid="searchButton"
+                  >
+                    <AiOutlineSearch />
+                  </SearchIconBtn>
+                </SearchContainer>
+                {apiStatus === 'IN PROGRESS'
+                  ? this.onLoader()
+                  : this.homeSearchVideos()}
+              </VideoListContainer>
+            </VideosContainer>
+          )
+        }}
+      </ThemeContext.Consumer>
+    )
+  }
+
+  render() {
+    const jwtToken = Cookies.get('jwt_token')
+    if (jwtToken === undefined) {
+      return <Redirect to="/login" />
+    }
+    return (
+      <ThemeContext.Consumer>
+        {value => {
+          const {isThemeDark} = value
+          const bgColor = isThemeDark ? '#181818 ' : '#f9f9f9'
+          return (
+            <HomeContainer data-testid="home" bgColor={bgColor}>
               <Header />
               <WatchContainer>
                 <SideBar />
-                <VideosContainer>
-                  <AdContainer />
-                  <VideoListContainer>
-                    <SearchContainer
-                      borderColor={isThemeDark ? '#cccccc' : '#424242'}
-                    >
-                      <SearchBar
-                        type="text"
-                        value={searchInput}
-                        placeholder="Search"
-                        onChange={this.onChangeSearchInput}
-                        color={isThemeDark ? '#f1f1f1' : '#0f0f0f'}
-                      />
-                      <SearchIconBtn
-                        type="button"
-                        color={isThemeDark ? '#cccccc' : '#424242'}
-                        onClick={this.onClickEnter}
-                      >
-                        <AiOutlineSearch />
-                      </SearchIconBtn>
-                    </SearchContainer>
-                    {apiStatus === 'IN PROGRESS'
-                      ? this.onLoader()
-                      : this.homeSearchVideos()}
-                  </VideoListContainer>
-                </VideosContainer>
+                {this.getHomeTabVideos()}
               </WatchContainer>
             </HomeContainer>
           )

@@ -20,18 +20,18 @@ class AdContainer extends Component {
     const {closeBanner} = this.state
     const displayBanner = closeBanner ? 'none' : 'flex'
     return (
-      <AdCardContainer display={displayBanner}>
+      <AdCardContainer data-testid="banner" display={displayBanner}>
         <AdContent>
           <NxtWatchLogo
             src="https://assets.ccbp.in/frontend/react-js/nxt-watch-logo-light-theme-img.png"
-            alt="nxt-watch-logo"
+            alt="nxt watch logo"
           />
           <AdDescription>
             Buy Nxt Watch Premium prepaid plans with UPI
           </AdDescription>
           <GetItNowBtn type="button">GET IT NOW</GetItNowBtn>
         </AdContent>
-        <CloseIcon type="button" onClick={this.closeBanner}>
+        <CloseIcon data-testid="close" type="button" onClick={this.closeBanner}>
           <AiOutlineClose />
         </CloseIcon>
       </AdCardContainer>
