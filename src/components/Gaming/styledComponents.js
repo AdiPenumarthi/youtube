@@ -54,7 +54,7 @@ export const GameImage = styled.img`
   height: 140px;
 `
 
-export const GameTitle = styled.h1`
+export const GameTitle = styled.p`
   font-family: 'Roboto';
   font-size: 16px;
   color: ${props => props.color};

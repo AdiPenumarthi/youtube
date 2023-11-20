@@ -29,10 +29,8 @@ const FailureView = props => {
               Oops! Something Went Wrong
             </FailureHeader>
             <FailureDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              We are having some trouble to complete your request.
-            </FailureDesc>
-            <FailureDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              Please Try Again.
+              We are having some trouble to complete your request. Please try
+              again.
             </FailureDesc>
             <RetryBtn type="button" onClick={retryData}>
               Retry

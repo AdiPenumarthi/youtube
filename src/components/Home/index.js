@@ -63,15 +63,12 @@ class Home extends Component {
           : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
         return (
           <NoResultContainer>
-            <NoResultImage src={failureImage} />
+            <NoResultImage src={failureImage} alt="no videos" />
             <NoResultHeader color={isThemeDark ? '#000000' : '#ffffff'}>
-              Oops! Something Went Wrong
+              No Search results found
             </NoResultHeader>
             <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              We are having some trouble to complete your request.
-            </NoResultDesc>
-            <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              Please Try Again.
+              Try different key words or remove search filter
             </NoResultDesc>
             <RetryBtn type="button" onClick={this.onClickEnter}>
               Retry
@@ -153,7 +150,7 @@ class Home extends Component {
                   borderColor={isThemeDark ? '#cccccc' : '#424242'}
                 >
                   <SearchBar
-                    type="text"
+                    type="search"
                     value={searchInput}
                     placeholder="Search"
                     onChange={this.onChangeSearchInput}
