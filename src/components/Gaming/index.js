@@ -99,10 +99,8 @@ class Trending extends Component {
               Oops! Something Went Wrong
             </NoResultHeader>
             <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              We are having some trouble to complete your request.
-            </NoResultDesc>
-            <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              Please Try Again.
+              We are having some trouble to complete your request. Please Try
+              Again.
             </NoResultDesc>
             <RetryBtn type="button" onClick={this.onClickEnter}>
               Retry
@@ -138,6 +136,7 @@ class Trending extends Component {
         apiStatus: apiStatusConstants.success,
       })
     } else {
+      // console.log('ok')
       this.setState({apiStatus: apiStatusConstants.failure})
     }
   }
@@ -147,7 +146,7 @@ class Trending extends Component {
     switch (apiStatus) {
       case 'SUCCESS':
         return this.successGamingVideos()
-      case 'Failure':
+      case 'FAILURE':
         return this.loadFailureView()
       default:
         return this.onLoader()

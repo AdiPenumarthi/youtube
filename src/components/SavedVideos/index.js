@@ -32,13 +32,10 @@ const SavedVideos = () => {
           <NoResultContainer>
             <NoResultImage src={failureImage} alt="no saved videos" />
             <NoResultHeader color={isThemeDark ? '#000000' : '#ffffff'}>
-              Oops! Something Went Wrong
+              No saved videos found
             </NoResultHeader>
             <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              We are having some trouble to complete your request.
-            </NoResultDesc>
-            <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>
-              Please Try Again.
+              Save your videos by clicking a button
             </NoResultDesc>
           </NoResultContainer>
         )

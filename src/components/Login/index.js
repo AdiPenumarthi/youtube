@@ -96,20 +96,22 @@ class Login extends Component {
                 shadowColor={isThemeDark ? 'transparent' : '#ebebeb'}
                 onSubmit={this.submitForm}
               >
-                <AppLogo src={appLogo} />
+                <AppLogo src={appLogo} alt="website logo" />
                 <InputContainer>
-                  <Label>USERNAME</Label>
+                  <Label htmlFor="username">USERNAME</Label>
                   <Input
                     type="text"
                     value={username}
+                    id="username"
                     placeholder="Username"
                     onChange={this.changeInputName}
                   />
                 </InputContainer>
                 <InputContainer>
-                  <Label>PASSWORD</Label>
+                  <Label htmlFor="password">PASSWORD</Label>
                   <Input
                     type={isChecked ? 'text' : 'password'}
+                    id="password"
                     value={password}
                     placeholder="Password"
                     onChange={this.changeInputPassword}

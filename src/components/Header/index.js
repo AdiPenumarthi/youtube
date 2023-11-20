@@ -88,7 +88,7 @@ const Header = props => {
                 {close => (
                   <PopupContainer bgColor={isThemeDark ? '#212121' : '#f9f9f9'}>
                     <ConfirmationText color={color}>
-                      Are you sure you want to logout?
+                      Are you sure, you want to logout?
                     </ConfirmationText>
                     <ButtonsContainer>
                       <CancelBtn

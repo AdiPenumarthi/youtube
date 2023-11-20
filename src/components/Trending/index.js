@@ -117,7 +117,7 @@ class Trending extends Component {
     switch (apiStatus) {
       case 'SUCCESS':
         return this.successTrendingVideos()
-      case 'Failure':
+      case 'FAILURE':
         return this.loadFailureView()
       default:
         return this.onLoader()

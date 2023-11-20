@@ -175,7 +175,6 @@ class VideoItemDetails extends Component {
             let updatedSavedList
             if (!isVideoSaved) {
               updatedSavedList = [...savedVideosList, videoDetails]
-              console.log('save')
             } else {
               updatedSavedList = savedVideosList.filter(
                 item => item.id !== videoDetails.id,
@@ -198,7 +197,7 @@ class VideoItemDetails extends Component {
               <VideoPlayer>
                 <ReactPlayer
                   url={videoUrl}
-                  light={<img src={thumbnailUrl} alt="Thumbnail" />}
+                  light={`${thumbnailUrl}`}
                   width="100%"
                   height="100%"
                 />
@@ -229,7 +228,7 @@ class VideoItemDetails extends Component {
               </ViewsContainer>
               <HrLine />
               <ProfileContainer>
-                <ProfileImage src={profileImageUrl} />
+                <ProfileImage src={profileImageUrl} alt="channel logo" />
                 <ProfileDetailCard>
                   <ProfileName color={textColor}>{name}</ProfileName>
                   <SubscriberCount color={textColor}>

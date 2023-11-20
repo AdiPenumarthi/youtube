@@ -50,7 +50,6 @@ const SideBar = () => (
               >
                 <IconBtn
                   color={activeTab === 'HOME' ? '#ff0000' : `${iconColor}`}
-                  type="button"
                 >
                   <AiFillHome />
                 </IconBtn>
@@ -58,7 +57,7 @@ const SideBar = () => (
                   fontWeight={activeTab === 'HOME' ? '600' : 'none'}
                   color={iconColor}
                 >
-                  HOME
+                  Home
                 </TabName>
               </TabBtn>
             </LinkItem>
@@ -72,7 +71,6 @@ const SideBar = () => (
               >
                 <IconBtn
                   color={activeTab === 'TRENDING' ? '#ff0000' : `${iconColor}`}
-                  type="button"
                 >
                   <ImFire />
                 </IconBtn>
@@ -80,7 +78,7 @@ const SideBar = () => (
                   fontWeight={activeTab === 'TRENDING' ? '600' : 'none'}
                   color={iconColor}
                 >
-                  TRENDING
+                  Trending
                 </TabName>
               </TabBtn>
             </LinkItem>
@@ -92,7 +90,6 @@ const SideBar = () => (
               >
                 <IconBtn
                   color={activeTab === 'GAMING' ? '#ff0000' : `${iconColor}`}
-                  type="button"
                 >
                   <SiYoutubegaming />
                 </IconBtn>
@@ -100,7 +97,7 @@ const SideBar = () => (
                   fontWeight={activeTab === 'GAMING' ? '600' : 'none'}
                   color={iconColor}
                 >
-                  GAMING
+                  Gaming
                 </TabName>
               </TabBtn>
             </LinkItem>
@@ -116,7 +113,6 @@ const SideBar = () => (
                   color={
                     activeTab === 'SAVED VIDEOS' ? '#ff0000' : `${iconColor}`
                   }
-                  type="button"
                 >
                   <BiListPlus />
                 </IconBtn>
@@ -124,7 +120,7 @@ const SideBar = () => (
                   fontWeight={activeTab === 'SAVED VIDEOS' ? '600' : 'none'}
                   color={iconColor}
                 >
-                  SAVED VIDEOS
+                  Saved videos
                 </TabName>
               </TabBtn>
             </LinkItem>

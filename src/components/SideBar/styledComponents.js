@@ -15,7 +15,7 @@ export const SideBarContainer = styled.div`
   }
 `
 
-export const FeaturesContainer = styled.div`
+export const FeaturesContainer = styled.ul`
   width: 100%;
   display: flex;
   flex-direction: column;
