@@ -26,12 +26,11 @@ const SavedVideos = () => {
     <ThemeContext.Consumer>
       {value => {
         const {isThemeDark} = value
-        const failureImage = isThemeDark
-          ? 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-dark-theme-img.png'
-          : 'https://assets.ccbp.in/frontend/react-js/nxt-watch-failure-view-light-theme-img.png'
+        const failureImage =
+          'https://assets.ccbp.in/frontend/react-js/nxt-watch-no-saved-videos-img.png'
         return (
           <NoResultContainer>
-            <NoResultImage src={failureImage} />
+            <NoResultImage src={failureImage} alt="no saved videos" />
             <NoResultHeader color={isThemeDark ? '#000000' : '#ffffff'}>
               Oops! Something Went Wrong
             </NoResultHeader>

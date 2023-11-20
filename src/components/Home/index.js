@@ -88,7 +88,7 @@ class Home extends Component {
     </div>
   )
 
-  onFailureView = () => <FailureView retry={this.onClickEnter()} />
+  onFailureView = () => <FailureView retry={this.onClickEnter} />
 
   onClickEnter = async () => {
     const {searchInput} = this.state
