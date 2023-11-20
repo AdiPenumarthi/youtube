@@ -49,7 +49,7 @@ class Trending extends Component {
     </div>
   )
 
-  loadFailureView = () => <FailureView retry={this.getGamingVideos()} />
+  loadFailureView = () => <FailureView retry={this.getGamingVideos} />
 
   successGamingVideos = () => {
     const {gamingVideos} = this.state
