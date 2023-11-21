@@ -30,13 +30,14 @@ export const NavLink = styled(Link)`
 `
 
 export const VideoContainer = styled.div`
-  width: 180px;
+  width: 190px;
   min-height: 220px;
   max-width: 250px;
   margin: 0px;
   padding: 10px;
   padding-left: 0px;
   flex-grow: 1;
+  margin-right: 15px;
 `
 
 export const VideoThumbnailImage = styled.img`

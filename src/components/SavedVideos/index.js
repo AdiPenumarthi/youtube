@@ -31,7 +31,7 @@ const SavedVideos = () => {
         return (
           <NoResultContainer>
             <NoResultImage src={failureImage} alt="no saved videos" />
-            <NoResultHeader color={isThemeDark ? '#000000' : '#ffffff'}>
+            <NoResultHeader color={isThemeDark ? '#ffffff' : '#000000'}>
               No saved videos found
             </NoResultHeader>
             <NoResultDesc color={isThemeDark ? '#424242' : '##e2e8f0'}>

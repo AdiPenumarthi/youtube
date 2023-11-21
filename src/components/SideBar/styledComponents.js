@@ -22,6 +22,7 @@ export const FeaturesContainer = styled.ul`
   justify-content: flex-start;
   align-items: center;
   background-color: transparent;
+  padding-left: 0px;
 `
 
 export const LinkItem = styled(Link)`
@@ -43,7 +44,7 @@ export const IconBtn = styled.i`
   margin: 0px;
   padding: 0px;
   color: ${props => props.color};
-  font-size: 14px;
+  font-size: 20px;
   margin: 0px;
   padding: 0px;
   font-size: 18px;
@@ -52,10 +53,12 @@ export const IconBtn = styled.i`
 
 export const TabName = styled.p`
   font-family: 'Roboto';
-  font-size: 14px;
+  font-size: 20px;
   color: '#000000';
   font-weight: ${props => props.fontWeight};
   color: ${props => props.color};
+  padding: 0px;
+  margin: 10px;
 `
 
 export const FooterSection = styled.div`

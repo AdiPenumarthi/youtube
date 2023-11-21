@@ -42,8 +42,9 @@ export const GamingVideosContainer = styled.ul`
 export const EachVideo = styled.li`
   width: 180px;
   max-width: 250px;
-  min-height: 220px;
+  min-height: 350px;
   margin: 0px;
+  margin-right: 15px;
   padding: 10px;
   padding-left: 0px;
   flex-grow: 1;
@@ -51,7 +52,7 @@ export const EachVideo = styled.li`
 
 export const GameImage = styled.img`
   width: 100%;
-  height: 140px;
+  height: 250px;
 `
 
 export const GameTitle = styled.p`
